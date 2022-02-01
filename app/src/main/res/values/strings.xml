@@ -26,5 +26,6 @@
     <string name="tv_register">Registrese en la página oficial de milAnuncios para tener una cuenta conectada con la app!</string>
     <string name="bt_login">Log In</string>
     <string name="bt_register">Register</string>
-    <string name="tv_preferences">\n\n Aun no hay Preferencias :(</string>
+    <string name="tv_preferences">\n\n Aun no hay Preferencias :( \n</string>
+    <string name="santogal">SANTOGAL</string>
 </resources>
