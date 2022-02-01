@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="es.danimoreno.concesionario_milanuncios.MainActivity">
+    <item
+        android:id="@+id/action_mi_perfil"
+        android:orderInCategory="100"
+        android:title="@string/tv_perfil"
+        app:showAsAction="never" />
+    <item
+    android:id="@+id/action_preferences"
+    android:orderInCategory="100"
+    android:title="@string/tv_preferencias"
+    app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_web"
+        android:orderInCategory="100"
+        android:title="@string/tv_web"
+        app:showAsAction="never" />
+    <item
+    android:id="@+id/action_Info"
+    android:orderInCategory="100"
+    android:title="@string/tv_Info"
+    app:showAsAction="never" />
+
+</menu>

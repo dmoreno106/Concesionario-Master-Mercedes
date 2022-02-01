@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Concesionario-MilAnuncios</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="tv_milanuncios">Milanuncios</string>
+    <string name="ivImage">imagen</string>
+    <string name="tv_perfil">Mi Perfil</string>
+    <string name="tv_Info">Informacion sobre la empresa</string>
+    <string name="tv_preferencias">Preferencias</string>
+    <string name="tv_web">Página Web</string>
+    <string name="tvTitle">Title</string>
+    <string name="tv_price">Price</string>
+    <string name="tv_ref">Ref</string>
+    <string name="ivdesc">desc</string>
+    <string name="tv_about">Acerca de Santogal Concesionario Oficial Mercedes</string>
+    <string name="tv_tlf">Teléfono ☎ 910780915</string>
+    <string name="tv_info">Servicio Oficial Mercedes-Benz Venta de vehículos usados y Ocasión Estrella con la garantía Mercedes-Benz. Venta de vehículos nuevos, turismos, furgonetas y smart. Taller mecánico y de chapa y pintura. Servicio de recambios originales Mercedes-Benz</string>
+    <string name="tv_direccion">Dirección: Londres, 40 28232 Las Rozas (Madrid)</string>
+    <string name="tv_register">Registrese en la página oficial de milAnuncios para tener una cuenta conectada con la app!</string>
+    <string name="bt_login">Log In</string>
+    <string name="bt_register">Register</string>
+    <string name="tv_preferences">\n\n Aun no hay Preferencias :(</string>
+</resources>
