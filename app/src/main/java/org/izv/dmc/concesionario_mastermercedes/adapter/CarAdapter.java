@@ -60,9 +60,8 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder>{
             holder.tvYear.setText("YEAR: "+selectedCar.year);
             holder.tvColor.setText("COLOR: "+selectedCar.color);
             holder.tvCombustible.setText("FUEL: "+selectedCar.combustible);
-            String img = selectedCar.imagesUrls.get(0);
-            String[] images = img.split(";");
-            Picasso.get().load(images[0]).into(holder.ivAspect);
+            String img = selectedCar.imagesUrl+"_1.jpg";
+            Picasso.get().load(img).into(holder.ivAspect);
         }
     }
 

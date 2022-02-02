@@ -20,13 +20,14 @@ public class Car implements Parcelable {
     public String nPuertas;
     public String year;
     public String ubi;
-    public ArrayList<String> imagesUrls;
+    public String imagesUrl;
+    public String nImages;
 
     //constructor
     public Car(int ref, String title, String desc, String price,
                String url,String combustible, String km, String cambio,
                String color, String potencia, String nPuertas,String year,
-               String ubi,String imagesUrls) {
+               String ubi,String imagesUrl,String nImages) {
         this.ref = ref;
         this.title = title;
         this.desc = desc;
@@ -40,12 +41,8 @@ public class Car implements Parcelable {
         this.nPuertas = nPuertas;
         this.year = year;
         this.ubi = ubi;
-
-        String[] arrImgs = imagesUrls.split(";");
-        this.imagesUrls = new ArrayList<String>();
-        for (String cat : arrImgs) {
-            this.imagesUrls.add(cat);
-        }
+        this.imagesUrl=imagesUrl;
+        this.nImages=nImages;
     }
 
 
@@ -63,7 +60,8 @@ public class Car implements Parcelable {
         nPuertas = in.readString();
         year = in.readString();
         ubi = in.readString();
-        imagesUrls = in.createStringArrayList();
+        imagesUrl = in.readString();
+        nImages=in.readString();
     }
 
     public static final Creator<Car> CREATOR = new Creator<Car>() {
@@ -97,7 +95,8 @@ public class Car implements Parcelable {
         parcel.writeString(nPuertas);
         parcel.writeString(year);
         parcel.writeString(ubi);
-        parcel.writeStringList(imagesUrls);
+        parcel.writeString(imagesUrl);
+        parcel.writeString(nImages);
     }
 
     //toString para pruebas en consola
@@ -117,7 +116,7 @@ public class Car implements Parcelable {
                 ", nPuertas='" + nPuertas + '\'' +
                 ", year='" + year + '\'' +
                 ", ubi='" + ubi + '\'' +
-                ", imagesUrls=" + imagesUrls +
+                ", imagesUrls=" + imagesUrl+
                 '}';
     }
 }

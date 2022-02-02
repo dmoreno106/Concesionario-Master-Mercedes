@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +28,7 @@ public class CarSingle extends AppCompatActivity {
     private ImageView iv;
     private EditText etUbi, etCombustible, etKm, etCambio;
     private Button btLeft, btRight;
-    private int posicion = 0;
+    private int posicion = 1;
 
 
 
@@ -46,7 +47,6 @@ public class CarSingle extends AppCompatActivity {
         // Action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        String[] images = car.imagesUrls.toArray(new String[0]);
         initialize();
     }
 
@@ -78,13 +78,13 @@ public class CarSingle extends AppCompatActivity {
         btLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(posicion>0){
+                if(posicion>=1){
                     posicion--;
-                    if(posicion==0){
+                    if(posicion==1){
                         btLeft.setEnabled(false);
                     }
                     btRight.setEnabled(true);
-                    Picasso.get().load(car.imagesUrls.get(posicion)).into(iv);
+                    Picasso.get().load(car.imagesUrl+"_"+posicion+".jpg").into(iv);
                 }
             }
         });
@@ -92,16 +92,22 @@ public class CarSingle extends AppCompatActivity {
         btRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(posicion<car.imagesUrls.size()-1){
+                try {
+                    int number=Integer.parseInt(car.nImages);
+                if(posicion<number){
+
                     posicion++;
-                    if(posicion==car.imagesUrls.size()-1){
+                    if(posicion==number){
                         btRight.setEnabled(false);
                     }
 
                     btLeft.setEnabled(true);
-                    Picasso.get().load(car.imagesUrls.get(posicion)).into(iv);
+                    Picasso.get().load(car.imagesUrl+"_"+posicion+".jpg").into(iv);
                 }
+            }catch (NumberFormatException e){
+                Log.v("xyzyx",e.toString());
             }
+        }
         });
 
         //añadimos algunos listeners que indiquen de que elemento se tratan al pulsarlos a través de un Toast
@@ -153,7 +159,7 @@ public class CarSingle extends AppCompatActivity {
         etCambio.setText(car.cambio);
         etUbi.setText(car.ubi);
 
-        Picasso.get().load(car.imagesUrls.get(0)).into(iv);
+        Picasso.get().load(car.imagesUrl+"_1.jpg").into(iv);
         urlListener(car.url);
 
     }

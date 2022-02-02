@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
                     String nPuertas = resultSet.getString("npuertas");
                     String images = resultSet.getString("imagenes");
                     String ubi = resultSet.getString("localizacion");
-
-                    Car car = new Car(ref, title, desc, price, url,combustible,km,cambio, color, potencia, nPuertas, year,ubi,images);
+                    String nImages=resultSet.getString("nImages");
+                    Car car = new Car(ref, title, desc, price, url,combustible,km,cambio, color, potencia, nPuertas, year,ubi,images,nImages);
                     info.add(car);
 
                 }
