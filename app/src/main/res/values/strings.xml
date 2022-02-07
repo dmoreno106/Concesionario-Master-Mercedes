@@ -28,4 +28,5 @@
     <string name="bt_register">Register</string>
     <string name="tv_preferences">\n\n Aun no hay Preferencias :( \n</string>
     <string name="santogal">SANTOGAL</string>
+    <string name="tv_number">00/00</string>
 </resources>

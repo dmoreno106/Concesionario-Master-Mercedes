@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,10 +26,12 @@ public class CarSingle extends AppCompatActivity {
 
     Context context;
     private Car car;
-    private TextView tvTitle, tvPrice, tvRef, tvColor, tvDesc, tvUrl, tvYear, tvPotencia, tvNPuertas ;
-    private ImageView iv;
+    private TextView tvTitle, tvPrice, tvRef, tvColor, tvDesc, tvUrl, tvYear, tvPotencia, tvNPuertas,tvNumeroImagenes;
+    private ImageView iv,ivZoom;
     private EditText etUbi, etCombustible, etKm, etCambio;
     private Button btLeft, btRight;
+    private ImageButton btExit;
+    private View zommedLayout;
     private int posicion = 1;
 
 
@@ -47,7 +51,16 @@ public class CarSingle extends AppCompatActivity {
         // Action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle(car.title);
+
         initialize();
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 
@@ -70,26 +83,47 @@ public class CarSingle extends AppCompatActivity {
         tvNPuertas = findViewById(R.id.tvNPuertas);
         btLeft =findViewById(R.id.btLeft);
         btRight = findViewById(R.id.btRight);
-
+        tvNumeroImagenes=findViewById(R.id.tvNumber);
+        ivZoom=findViewById(R.id.ivZoom);
+        btExit=findViewById(R.id.btExit);
+        zommedLayout=findViewById(R.id.zommedLayout);
         btLeft.setEnabled(false);
         FillFields();
 
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zommedLayout.setVisibility(View.VISIBLE);
+            }
+        });
+
+        btExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zommedLayout.setVisibility(View.GONE);
+            }
+        });
+
         //añadimos los listeners de los botones
         btLeft.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 if(posicion>=1){
                     posicion--;
+                    tvNumeroImagenes.setText(posicion+"/"+car.nImages);
                     if(posicion==1){
                         btLeft.setEnabled(false);
                     }
                     btRight.setEnabled(true);
                     Picasso.get().load(car.imagesUrl+"_"+posicion+".jpg").into(iv);
+                    Picasso.get().load(car.imagesUrl+"_"+posicion+".jpg").into(ivZoom);
                 }
             }
         });
 
         btRight.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 try {
@@ -97,12 +131,14 @@ public class CarSingle extends AppCompatActivity {
                 if(posicion<number){
 
                     posicion++;
+                    tvNumeroImagenes.setText(posicion+"/"+car.nImages);
                     if(posicion==number){
                         btRight.setEnabled(false);
                     }
 
                     btLeft.setEnabled(true);
                     Picasso.get().load(car.imagesUrl+"_"+posicion+".jpg").into(iv);
+                    Picasso.get().load(car.imagesUrl+"_"+posicion+".jpg").into(ivZoom);
                 }
             }catch (NumberFormatException e){
                 Log.v("xyzyx",e.toString());
@@ -158,7 +194,7 @@ public class CarSingle extends AppCompatActivity {
         tvNPuertas.setText(car.nPuertas+" puertas");
         etCambio.setText(car.cambio);
         etUbi.setText(car.ubi);
-
+        tvNumeroImagenes.setText("1/"+car.nImages);
         Picasso.get().load(car.imagesUrl+"_1.jpg").into(iv);
         urlListener(car.url);
 

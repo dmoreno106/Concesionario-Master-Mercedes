@@ -77,6 +77,17 @@
                     app:iconSize="50sp"
                     tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
 
+                <TextView
+                    android:id="@+id/tvNumber"
+                    android:layout_width="138dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tv_number"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    tools:ignore="TextContrastCheck" />
+
                 <Button
                     android:id="@+id/btRight"
                     style="?android:attr/buttonBarButtonStyle"
@@ -90,6 +101,7 @@
                     app:iconGravity="textStart"
                     app:iconSize="50sp"
                     tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
             </LinearLayout>
 
             <ImageView
@@ -353,5 +365,39 @@
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/zommedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B70E0A0A"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btExit"
+            android:layout_width="45dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/principal"
+            android:src="@android:drawable/btn_dialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/ivZoom"
+            android:layout_width="307dp"
+            android:layout_height="301dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
